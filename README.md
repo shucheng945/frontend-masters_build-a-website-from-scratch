@@ -1,5 +1,11 @@
 # Professional CSS: Build a Website from Scratch
 
+課程細節：
+
+- 發佈時間：2025 年 01 月 08 日
+- 平台：Frontend Masters
+- 作者：Kevin Powell
+
 Write CSS like a Pro! Build a responsive website from scratch using the latest CSS features like custom properties, nesting, CSS grid layouts, and helpful utility classes. Add polish with animations, custom view transitions, advanced bento-style layouts, and filtering. Deploy your site with a GitHub Actions workflow to Netlify and show off your professional CSS skills!
 
 ## Lessons
