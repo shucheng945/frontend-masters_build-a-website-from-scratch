@@ -208,6 +208,63 @@
   a:focus-visible {
     color: var(--text-brand-light);
   }
+
+  img {
+    border-radius: var(--border-radius-3);
+  }
+}
+
+@layer layout {
+  .section {
+    --padding: 3.75rem;
+
+    padding-block: var(--padding);
+
+    @media (width > 760px) {
+      --padding: 8rem;
+
+      &[data-padding="compact"] {
+        --padding: 4.5rem;
+      }
+    }
+  }
+
+  .wrapper {
+    --wrapper-max-width: 1130px;
+
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    padding-inline: 1rem;
+
+    /* ==========================================================================================
+     * 由於所有的元素都套用 box-sizing: border-box 以及我們添加 padding-inline 的關係（Figma 設計稿上
+     * 沒有設定內邊距，這是我們事後添加），這導致元素實際的寬度會比 Figma 設計稿上的寬度窄。為了一致性，提
+     * 供兩種方式來解決：
+     *
+     * - 第一種：
+     *   max-width: calc(1130px + (var(--padding-inline) * 2));
+     *
+     * - 第二種：
+     *   box-sizing: content-box;
+     *
+     * ※ 不管採用哪一種方式，請提供註解並說明原因！
+     * =========================================================================== */
+
+    /* helps to match the Figma file */
+    box-sizing: content-box;
+
+    /* ===============================================
+     * 若不喜歡以下的作法，也可以改成 BEM Modifier 的方式
+     * =============================================== */
+
+    &[data-width="narrow"] {
+      --wrapper-max-width: 720px;
+    }
+
+    &[data-width="wide"] {
+      --wrapper-max-width: 1330px;
+    }
+  }
 }
 
 @layer utilities {
@@ -223,5 +280,52 @@
     white-space: nowrap;
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  .text-brand {
+    color: var(--text-brand);
+  }
+  .text-high-contrast {
+    color: var(--text-high-contrast);
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .background-base {
+    background-color: var(--background-base);
+  }
+  .background-light {
+    background-color: var(--background-light);
+  }
+  .background-extra-light {
+    background-color: var(--background-extra-light);
+  }
+  .background-dark {
+    background-color: var(--background-dark);
+  }
+  .background-extra-dark {
+    background-color: var(--background-extra-dark);
+  }
+
+  .background-accent {
+    background-color: var(--background-accent-dark);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
   }
 }
