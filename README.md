@@ -32,3 +32,11 @@ Write CSS like a Pro! Build a responsive website from scratch using the latest C
   - Utility Classes
   - Styling Image Border Radius
 - Responsive Web Design
+  - Intrinsic Layout
+  - Creating Columns
+  - Creating Flow & Spacing
+- Component Styling
+  - Styling the Hero
+  - Styling the Cards
+  - Styling Buttons
+  - Styling the Footer
