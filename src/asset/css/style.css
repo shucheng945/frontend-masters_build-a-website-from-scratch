@@ -1,0 +1,463 @@
+@layer reset {
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Set core body defaults */
+  body {
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* Pretty text wrapping on paragraphs and list items */
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    color: currentColor;
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-block-size: 10em;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+}
+
+@layer base {
+  /* 可以去研究一下「自託管（Self-Hosting）」，並使用 @font-face 將它們帶入您的專案中 */
+  @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Outfit:wght@100..900&display=swap");
+
+  /* Primitive Variables */
+  :root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray-100: hsl(0, 3%, 79%);
+    --clr-brand-400: hsl(25, 88%, 75%);
+    --clr-brand-500: hsl(25, 88%, 66%);
+    --clr-green-400: hsl(143, 19%, 49%);
+    --clr-green-500: hsl(143, 38%, 37%);
+    --clr-green-600: hsl(145, 30%, 19%);
+    --clr-brown-500: hsl(10, 5%, 25%);
+    --clr-brown-600: hsl(9, 7%, 21%);
+    --clr-brown-700: hsl(10, 7%, 16%);
+    --clr-brown-800: hsl(10, 8%, 15%);
+    --clr-brown-900: hsl(0, 6%, 13%);
+
+    --clr-orange-500: hsl(28, 43%, 37%);
+    --clr-red-500: hsl(359, 34%, 37%);
+    --clr-teal-500: hsl(186, 42%, 37%);
+
+    --ff-body: "Fira Sans", sans-serif;
+    --ff-heading: "Outfit", sans-serif;
+
+    --fs-300: 0.875rem;
+    --fs-400: 1rem;
+    --fs-500: 1.125rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.5rem;
+    --fs-800: 2.25rem;
+    /* 字體大小 900 和 1000 在小螢幕尺寸下是相同的 */
+    --fs-900: 3.75rem;
+    --fs-1000: 3.75rem;
+
+    @media (width > 760px) {
+      --fs-500: 1.25rem;
+      --fs-600: 1.5rem;
+      --fs-700: 2rem;
+      --fs-800: 3rem;
+      --fs-900: 5rem;
+      --fs-1000: 7.5rem;
+    }
+  }
+
+  /* Semantic Variables */
+  :root {
+    --text-main: var(--clr-gray-100);
+    --text-high-contrast: var(--clr-white);
+    --text-brand: var(--clr-brand-500);
+    --text-brand-light: var(--clr-brand-400);
+
+    --background-accent-light: var(--clr-green-400);
+    --background-accent-main: var(--clr-green-500);
+    --background-accent-dark: var(--clr-green-600);
+
+    --background-extra-light: var(--clr-brown-500);
+    --background-light: var(--clr-brown-600);
+    --background-main: var(--clr-brown-700);
+    --background-dark: var(--clr-brown-800);
+    --background-extra-dark: var(--clr-brown-900);
+
+    --font-size-heading-sm: var(--fs-700);
+    --font-size-heading-regular: var(--fs-800);
+    --font-size-heading-lg: var(--fs-900);
+    --font-size-heading-xl: var(--fs-1000);
+
+    --font-size-sm: var(--fs-300);
+    --font-size-regular: var(--fs-400);
+    --font-size-md: var(--fs-500);
+    --font-size-lg: var(--fs-600);
+
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    --border-radius-3: 0.75rem;
+  }
+
+  html {
+    font-family: var(--ff-body);
+    line-height: 1.6;
+  }
+
+  body {
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    background-color: var(--background-main);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-heading);
+    color: var(--text-high-contrast);
+  }
+
+  h1 {
+    font-size: var(--font-size-heading-lg);
+  }
+
+  a {
+    color: var(--text-high-contrast);
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--text-brand-light);
+  }
+
+  img {
+    border-radius: var(--border-radius-3);
+  }
+}
+
+@layer layout {
+  .flow > * + * {
+    margin-top: var(--flow-spacer, 1em);
+  }
+
+  /* ==================================================================
+   * 取名為 grid-flow，是因為它暗示這套排版是基於 CSS Grid 的流式間距機制。
+   * 使用 Grid 時，間距完全靠 gap 控制，不需要在個別元素上用 margin，因此可
+   * 以保證「同一套排版規則下間距永遠一致」。
+   * ================================================================== */
+
+  .grid-flow {
+    display: grid;
+
+    /* =====================================================================
+     * 因為容器字體大小沒有改變，在這個範例下使用 1em 或 1rem 都會產出一樣的間距。
+     * 但習慣上選 rem 可保證全局一致性。
+     * ===================================================================== */
+
+    gap: var(--grid-flow-gap, 1rem);
+  }
+
+  .equal-columns {
+    display: grid;
+    gap: var(--equal-columns-gap, 1rem);
+    align-items: var(--equal-columns-vertical-alignment, stretch);
+
+    @media (width > 760px) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+
+    &[data-gap="large"] {
+      --equal-columns-gap: 2rem;
+    }
+
+    &[data-alignment="centered"] {
+      --equal-columns-vertical-alignment: center;
+    }
+  }
+
+  .section {
+    --padding: 3.75rem;
+
+    padding-block: var(--padding);
+
+    @media (width > 760px) {
+      --padding: 8rem;
+
+      &[data-padding="compact"] {
+        --padding: 4.5rem;
+      }
+    }
+  }
+
+  .wrapper {
+    --wrapper-max-width: 1130px;
+
+    max-width: var(--wrapper-max-width);
+    margin-inline: auto;
+    padding-inline: 1rem;
+
+    /* ==========================================================================================
+     * 由於所有的元素都套用 box-sizing: border-box 以及我們添加 padding-inline 的關係（Figma 設計稿上
+     * 沒有設定內邊距，這是我們事後添加），這導致元素實際的寬度會比 Figma 設計稿上的寬度窄。為了一致性，提
+     * 供兩種方式來解決：
+     *
+     * - 第一種：
+     *   max-width: calc(1130px + (var(--padding-inline) * 2));
+     *
+     * - 第二種：
+     *   box-sizing: content-box;
+     *
+     * ※ 不管採用哪一種方式，請提供註解並說明原因！
+     * =========================================================================== */
+
+    /* helps to match the Figma file */
+    box-sizing: content-box;
+
+    /* ===============================================
+     * 若不喜歡以下的作法，也可以改成 BEM Modifier 的方式
+     * =============================================== */
+
+    &[data-width="narrow"] {
+      --wrapper-max-width: 720px;
+    }
+
+    &[data-width="wide"] {
+      --wrapper-max-width: 1330px;
+    }
+  }
+}
+
+@layer components {
+  .site-header {
+    padding-block: 1rem;
+  }
+  .site-header__inner {
+    display: flex;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .primary-navigation {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+  }
+
+  .site-footer {
+    text-align: center;
+    background-color: var(--background-dark);
+    padding-block: 2rem;
+    display: grid;
+    gap: 2rem;
+
+    a {
+      color: var(--text-main);
+    }
+    a:hover,
+    a:focus-visible {
+      color: var(--text-brand-light);
+    }
+  }
+  .site-footer__title {
+    font-size: var(--font-size-lg);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+  }
+
+  .hero {
+    text-align: center;
+    font-size: var(--font-size-md);
+    color: var(--text-high-contrast);
+    background-image: url("../image/hero.webp");
+    background-size: cover;
+    background-position: center;
+  }
+  .hero__title {
+    font-size: var(--font-size-heading-lg);
+
+    span {
+      font-size: var(--font-size-heading-xl);
+      color: var(--text-brand);
+      display: block;
+    }
+  }
+
+  .card {
+    display: grid;
+    gap: var(--card-gap, 1rem);
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius-3);
+
+    img {
+      border-radius: var(--border-radius-2);
+    }
+  }
+  .card__title {
+    font-size: var(--card-title-font-size, var(--font-size-heading-sm));
+    color: var(--card-title-color, var(--text-brand));
+  }
+
+  .button {
+    display: inline-flex;
+    font-size: var(--font-size-md);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: var(--background-accent-main);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    border-radius: var(--border-radius-2);
+  }
+  .button:hover,
+  .button:focus-visible {
+    color: var(--text-high-contrast);
+    background-color: var(--background-accent-light);
+  }
+}
+
+@layer utilities {
+  /* ============================================================
+   * 無障礙設計：
+   * 讓螢幕閱讀器使用者能接收到必要資訊，但不影響一般使用者的視覺體驗。
+   * ============================================================ */
+  .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  .text-brand {
+    color: var(--text-brand);
+  }
+  .text-high-contrast {
+    color: var(--text-high-contrast);
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .background-base {
+    background-color: var(--background-base);
+  }
+  .background-light {
+    background-color: var(--background-light);
+  }
+  .background-extra-light {
+    background-color: var(--background-extra-light);
+  }
+  .background-dark {
+    background-color: var(--background-dark);
+  }
+  .background-extra-dark {
+    background-color: var(--background-extra-dark);
+  }
+
+  .background-accent {
+    background-color: var(--background-accent-dark);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+}
