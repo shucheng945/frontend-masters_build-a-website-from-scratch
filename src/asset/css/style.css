@@ -318,11 +318,89 @@
     justify-content: space-between;
   }
 
+  [aria-controls="primary-nav"] {
+    /* ===========================================================================
+     * 為什麼這裡的 z-index 屬性可以正常地工作？
+     * 以前必須搭配 position 屬性才可以工作，但現在只要父元素為 grid 或 flex 也可以工作
+     * =========================================================================== */
+
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+
+    /* ============================================================================
+     * 為什麼要在 img 元素裡設定 border-radius: 0？
+     * 因為在 base 層將所有的 img 元素都設定為 border-radius: var(--border-radius-3)，
+     * 這也導致漢堡圖示上下橫條產生不必要的邊框圓角。
+     *
+     * ※ 當然你也可以使用 Utilities 類別！
+     * ============================================================================ */
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  /* 來自於漢堡按鈕 */
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
+
   .primary-navigation {
     ul {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (width < 760px) {
+      display: none;
+
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      font-family: var(--ff-heading);
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      border-radius: 0 0 0 var(--border-radius-3);
+
+      ul {
+        gap: 0;
+        flex-direction: column;
+      }
+
+      li + li {
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.5rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
+
+      /* ===========================================================
+       * [aria-expanded="true"] ~ & 這部分有點難以閱讀，尤其是 & 符號，
+       * 但它就等同於 [aria-expanded="true"] ~ .primary-navigation
+       * =========================================================== */
+
+      /* [aria-expanded="true"] ~ & {
+        display: block;
+      } */
+    }
+  }
+
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+      display: block;
+    }
+
+    [aria-expanded="true"] ~ .primary-navigation {
+      display: block;
     }
   }
 
