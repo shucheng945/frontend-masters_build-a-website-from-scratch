@@ -308,6 +308,22 @@
 }
 
 @layer components {
+  .skip-to-main {
+    position: absolute;
+    background-color: var(--background-accent-main);
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
+  }
+  .skip-to-main:not(:focus) {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+
   .site-header {
     padding-block: 1rem;
   }
