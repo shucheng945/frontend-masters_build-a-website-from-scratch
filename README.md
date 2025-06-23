@@ -48,3 +48,13 @@ Write CSS like a Pro! Build a responsive website from scratch using the latest C
   - Merging Git Branch
   - Skip Navigation for Accessibility
 - Creating a Second Page
+  - Creating & Marking Up a New Page
+  - HTML Markup for Cards
+  - Responsive Cards Columns with Grid
+  - Styling the Card & Tags List
+  - Grid vs. Flexbox Layouts
+  - Styling Select Elements
+  - Creating a Bento Grid
+  - Fine - Tuning the Bento Grid
+  - Adding Navigation Items
+- Filtering Cards
