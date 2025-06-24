@@ -467,6 +467,12 @@
     }
   }
 
+  .mushroom-guide {
+    --card-title-font-size: var(--font-size-lg);
+    --card-title-color: var(--text-high-contrast);
+    --card-gap: 0.75rem;
+  }
+
   .card {
     display: grid;
     gap: var(--card-gap, 1rem);
@@ -481,6 +487,51 @@
   .card__title {
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
     color: var(--card-title-color, var(--text-brand));
+  }
+
+  .card__note {
+    background-color: var(--background-extra-light);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-2);
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    li {
+      font-family: var(--ff-heading);
+      font-size: var(--font-size-sm);
+      color: var(--text-high-contrast);
+      padding: 0 0.25rem;
+      background-color: var(--tag-bg, red);
+      border-radius: var(--border-radius-1);
+    }
+
+    /* ===============================================================
+     * 這邊思考一下，目前你有兩種變數，分別為基本變數和語意變數（優先使用）。
+     * 當這個變數找不到適合的語意名稱（適合的語意名稱通常參考該元素上下文的
+     * 關係或作用來命名），可以考慮先使用基本變數，之後找到適合的語意名稱時，
+     * 再做修改。
+     * =============================================================== */
+
+    [data-edible="edible"] {
+      --tag-bg: var(--background-accent-main);
+    }
+    [data-edible="toxic"] {
+      --tag-bg: var(--clr-red-500);
+    }
+
+    [data-season="summer"] {
+      --tag-bg: var(--background-accent-main);
+    }
+    [data-season="spring"] {
+      --tag-bg: var(--clr-teal-500);
+    }
+    [data-season="fall"] {
+      --tag-bg: var(--clr-orange-500);
+    }
   }
 
   .button {
