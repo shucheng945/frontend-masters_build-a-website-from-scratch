@@ -180,6 +180,18 @@
   html {
     font-family: var(--ff-body);
     line-height: 1.6;
+    scroll-padding: 3rem;
+  }
+
+  /* ===========================================
+   * 網頁捲動時造成暈眩，有些人不喜歡，解決方式使用
+   * @media (prefers-reduced-motion: reduced)
+   * =========================================== */
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
