@@ -328,6 +328,7 @@
     padding: 1rem;
     border-radius: var(--border-radius-1);
   }
+
   .skip-to-main:not(:focus) {
     position: absolute;
     overflow: hidden;
@@ -341,6 +342,7 @@
   .site-header {
     padding-block: 1rem;
   }
+
   .site-header__inner {
     display: flex;
     gap: 0.5rem 1rem;
@@ -444,11 +446,13 @@
     a {
       color: var(--text-main);
     }
+
     a:hover,
     a:focus-visible {
       color: var(--text-brand-light);
     }
   }
+
   .site-footer__title {
     font-size: var(--font-size-lg);
     font-family: var(--ff-heading);
@@ -463,6 +467,7 @@
     background-size: cover;
     background-position: center;
   }
+
   .hero__title {
     font-size: var(--font-size-heading-lg);
 
@@ -470,6 +475,71 @@
       font-size: var(--font-size-heading-xl);
       color: var(--text-brand);
       display: block;
+    }
+  }
+
+  .faq-bento {
+    --card-title-color: var(--text-high-contrast);
+
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "card-one"
+      "card-two"
+      "card-three"
+      "card-four";
+
+    @media (width > 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "card-one card-two"
+        "card-three card-four";
+    }
+
+    @media (width > 900px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "card-one   card-two   card-four"
+        "card-three card-three card-four";
+    }
+
+    .card > img {
+      /* =====================================================
+       * 如果父層是一個 grid 或 flex item，height: 100% 就能運作
+       * ===================================================== */
+
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (width > 600px) {
+      .card:nth-child(even) > img {
+        order: 1;
+      }
+    }
+
+    .card:nth-child(1) {
+      grid-area: card-one;
+    }
+    .card:nth-child(2) {
+      grid-area: card-two;
+    }
+    .card:nth-child(3) {
+      grid-area: card-three;
+
+      @media (width > 900px) {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+
+        img {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+      }
+    }
+    .card:nth-child(4) {
+      grid-area: card-four;
     }
   }
 
@@ -491,6 +561,7 @@
       border-radius: var(--border-radius-2);
     }
   }
+
   .card__title {
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
     color: var(--card-title-color, var(--text-brand));
@@ -527,6 +598,7 @@
     [data-edible="edible"] {
       --tag-bg: var(--background-accent-main);
     }
+
     [data-edible="toxic"] {
       --tag-bg: var(--clr-red-500);
     }
@@ -534,9 +606,11 @@
     [data-season="summer"] {
       --tag-bg: var(--background-accent-main);
     }
+
     [data-season="spring"] {
       --tag-bg: var(--clr-teal-500);
     }
+
     [data-season="fall"] {
       --tag-bg: var(--clr-orange-500);
     }
@@ -553,6 +627,7 @@
     font-weight: 700;
     border-radius: var(--border-radius-2);
   }
+
   .button:hover,
   .button:focus-visible {
     color: var(--text-high-contrast);
@@ -594,9 +669,11 @@
   .text-center {
     text-align: center;
   }
+
   .text-brand {
     color: var(--text-brand);
   }
+
   .text-high-contrast {
     color: var(--text-high-contrast);
   }
@@ -608,15 +685,19 @@
   .background-base {
     background-color: var(--background-base);
   }
+
   .background-light {
     background-color: var(--background-light);
   }
+
   .background-extra-light {
     background-color: var(--background-extra-light);
   }
+
   .background-dark {
     background-color: var(--background-dark);
   }
+
   .background-extra-dark {
     background-color: var(--background-extra-dark);
   }
@@ -628,12 +709,15 @@
   .font-size-sm {
     font-size: var(--font-size-sm);
   }
+
   .font-size-regular {
     font-size: var(--font-size-regular);
   }
+
   .font-size-md {
     font-size: var(--font-size-md);
   }
+
   .font-size-lg {
     font-size: var(--font-size-lg);
   }
