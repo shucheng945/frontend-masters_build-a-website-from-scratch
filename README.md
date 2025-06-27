@@ -65,3 +65,24 @@ Write CSS like a Pro! Build a responsive website from scratch using the latest C
   - Fine - Tuning the Bento Grid
   - Adding Navigation Items
 - Filtering Cards
+  - Tips for Scalling a Codebase
+  - Layers, Sublayers, & Scope
+  - Filtering with CSS
+  - Filtering with JavaScript
+  - Updating Filters
+  - Filtering Cards
+  - Handling Zero Matches
+  - Fallback for No JavaScript
+- Animation Techniques
+  - Progressive Enhancement
+  - Page View Transitions
+  - Document View Transitions
+  - Animating display: none
+  - Clipping Animation Overflow
+  - Animating List Items
+  - Resize Observer
+  - Scroll - Driven Animations
+- Theming and Customization
+  - Light & Dark Mode
+  - Updating the Published Site
+- Wrapping Up
