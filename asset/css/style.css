@@ -441,6 +441,24 @@
         flex-direction: column;
       }
 
+      /* ===================================================
+       * 當使用動畫效果時，延遲時間不要太久，不然使用者體驗會變差
+       * =================================================== */
+
+      li {
+        --delay: 1s;
+
+        translate: 50%;
+        transition: translate 1s var(--delay), opacity 1s var(--delay);
+      }
+
+      li:nth-child(2) {
+        --delay: 1.25s;
+      }
+      li:nth-child(3) {
+        --delay: 1.5s;
+      }
+
       li + li {
         margin-block-start: 1.5rem;
         padding-block-start: 1.5rem;
@@ -471,6 +489,16 @@
       @starting-style {
         opacity: 0;
         translate: 0 -100%;
+      }
+
+      li {
+        opacity: 1;
+        translate: 0 0;
+
+        @starting-style {
+          opacity: 0;
+          translate: 50% 0;
+        }
       }
     }
   }
