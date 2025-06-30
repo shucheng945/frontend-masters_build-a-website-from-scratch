@@ -365,6 +365,8 @@
 
   .site-header {
     padding-block: 1rem;
+    position: relative;
+    overflow-x: clip;
   }
 
   .site-header__inner {
