@@ -14,6 +14,7 @@ Write CSS like a Pro! Build a responsive website from scratch using the latest C
 - [Course Notes - Part 2](https://website-from-scratch-2.netlify.app/)
 - [Course Code](https://github.com/kevin-powell/fem-website-from-scratch-progress)
 - [FungiFinders - Figma](https://www.figma.com/design/XV3mC19r1ih4SymTnKQu4f/FungiFinders)
+- [Netlify](https://www.netlify.com/)
 
 ## Table of Contents
 
