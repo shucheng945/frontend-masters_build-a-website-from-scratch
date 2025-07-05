@@ -8,10 +8,20 @@ Write CSS like a Pro! Build a responsive website from scratch using the latest C
 - Platform: Frontend Masters
 - Author: Kevin Powell
 
+## Learning Paths
+
+- [CSS](https://frontendmasters.com/learn/css/)
+- [Design to Code](https://frontendmasters.com/learn/designers-code/)
+- [Professional](https://frontendmasters.com/learn/professional/)
+
+## Topics
+
+- [css](https://frontendmasters.com/topics/css/)
+- [responsive-design](https://frontendmasters.com/topics/responsive-design/)
+- [projects](https://frontendmasters.com/topics/projects/)
+
 ## Resources & Downloads
 
-- [Course Notes - Part 1](https://website-from-scratch-1.netlify.app/)
-- [Course Notes - Part 2](https://website-from-scratch-2.netlify.app/)
-- [Course Code](https://github.com/kevin-powell/fem-website-from-scratch-progress)
-- [FungiFinders - Figma](https://www.figma.com/design/XV3mC19r1ih4SymTnKQu4f/FungiFinders)
-- [Netlify](https://www.netlify.com/)
+- [Course Notes Part 1](https://website-from-scratch-1.netlify.app/)
+- [Course Notes Part 2](https://website-from-scratch-2.netlify.app/)
+- [Course Code/Repo](https://github.com/kevin-powell/fem-website-from-scratch-progress)
